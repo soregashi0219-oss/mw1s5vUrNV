@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kluay Light</title>
+<meta name="robots" content="noindex,nofollow,noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2b2622;
+  --ink-soft:#6b6058;
+  --paper:#efe9df;
+  --paper-warm:#e6dcce;
+  --glow:#e8a0b4;
+  --brass:#a8804a;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Karla',system-ui,sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{
+  max-width:600px;
+  margin:0 auto;
+  padding:0 28px 120px;
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  padding:96px 0 72px;
+  text-align:center;
+}
+
+.lamp{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:300;
+  font-size:clamp(52px,15vw,88px);
+  letter-spacing:.04em;
+  line-height:1;
+  color:var(--glow);
+  animation:breathe 10s ease-in-out infinite;
+}
+@keyframes breathe{
+  0%,100%{opacity:.42; text-shadow:0 0 18px rgba(232,160,180,.18)}
+  45%    {opacity:1;   text-shadow:0 0 46px rgba(232,160,180,.55), 0 0 90px rgba(232,160,180,.22)}
+}
+@media (prefers-reduced-motion:reduce){
+  .lamp{animation:none; opacity:.92; text-shadow:0 0 32px rgba(232,160,180,.4)}
+}
+
+.mast p{
+  margin-top:26px;
+  font-size:15px;
+  color:var(--ink-soft);
+  letter-spacing:.02em;
+}
+
+/* ---------- sections ---------- */
+section{padding:56px 0 0}
+
+h2{
+  font-family:'Fraunces',Georgia,serif;
+  font-weight:400;
+  font-size:23px;
+  letter-spacing:.01em;
+  margin-bottom:6px;
+}
+
+.lede{
+  color:var(--ink-soft);
+  font-size:15px;
+  margin-bottom:30px;
+}
+
+.body{
+  font-size:15px;
+  color:var(--ink-soft);
+}
+
+/* ---------- the brass bar ---------- */
+.bar{
+  height:3px;
+  background:linear-gradient(90deg,
+    transparent, var(--brass) 14%, #d4ab74 50%, var(--brass) 86%, transparent);
+  border-radius:2px;
+  margin:0 0 44px;
+  opacity:.62;
+}
+
+/* ---------- gesture list ---------- */
+.gestures{list-style:none}
+
+.gestures li{
+  display:grid;
+  grid-template-columns:76px 1fr;
+  gap:20px;
+  padding:17px 0;
+  border-bottom:1px solid rgba(120,105,88,.16);
+  align-items:baseline;
+}
+.gestures li:first-child{border-top:1px solid rgba(120,105,88,.16)}
+
+.hold{
+  font-family:'Fraunces',Georgia,serif;
+  font-size:15px;
+  color:var(--brass);
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+
+.what{font-size:15.5px}
+.what em{
+  display:block;
+  font-style:normal;
+  font-size:13.5px;
+  color:var(--ink-soft);
+  margin-top:3px;
+}
+
+/* ---------- dates ---------- */
+.dates{list-style:none; margin-top:4px}
+
+.dates li{
+  display:flex;
+  align-items:baseline;
+  gap:16px;
+  padding:13px 0;
+}
+
+.dates .d{
+  font-family:'Fraunces',Georgia,serif;
+  font-size:17px;
+  color:var(--glow);
+  min-width:112px;
+  letter-spacing:.02em;
+}
+.dates .n{font-size:15px; color:var(--ink-soft)}
+
+.hush{
+  margin-top:26px;
+  padding:20px 22px;
+  border-left:2px solid var(--glow);
+  background:var(--paper-warm);
+  font-size:15px;
+  color:var(--ink-soft);
+}
+.hush strong{color:var(--ink); font-weight:500}
+
+/* ---------- steps ---------- */
+.steps{list-style:none; counter-reset:s}
+
+.steps li{
+  counter-increment:s;
+  position:relative;
+  padding:14px 0 14px 30px;
+  font-size:15px;
+}
+.steps li::before{
+  content:counter(s);
+  position:absolute;
+  left:0;
+  top:14px;
+  font-family:'Fraunces',Georgia,serif;
+  color:var(--brass);
+  font-size:15px;
+  line-height:1.7;
+}
+.steps small{
+  display:block;
+  color:var(--ink-soft);
+  font-size:13.5px;
+  margin-top:3px;
+}
+
+code{
+  font-family:'Karla',monospace;
+  background:var(--paper-warm);
+  padding:2px 7px;
+  border-radius:3px;
+  font-size:14px;
+  letter-spacing:.02em;
+}
+
+/* ---------- signals ---------- */
+.signal{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  padding:15px 0;
+  font-size:15px;
+  border-bottom:1px solid rgba(120,105,88,.14);
+}
+.signal:last-of-type{border-bottom:none}
+
+.blink{
+  flex:none;
+  width:11px; height:11px;
+  border-radius:50%;
+  background:#fff;
+  margin-top:7px;
+  box-shadow:0 0 10px rgba(255,255,255,.9), 0 0 3px rgba(120,105,88,.5);
+}
+.blink.slow{animation:bl 2.6s ease-in-out infinite}
+.blink.fast{animation:bl .85s ease-in-out infinite}
+@keyframes bl{0%,100%{opacity:.16}50%{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .blink.slow,.blink.fast{animation:none;opacity:.8}
+}
+
+/* ---------- care ---------- */
+.care{list-style:none; font-size:15px}
+.care li{
+  padding:11px 0 11px 20px;
+  position:relative;
+  color:var(--ink-soft);
+}
+.care li::before{
+  content:"";
+  position:absolute; left:0; top:20px;
+  width:7px; height:1px;
+  background:var(--brass);
+}
+
+/* ---------- close ---------- */
+.close{
+  margin-top:88px;
+  padding-top:40px;
+  border-top:1px solid rgba(120,105,88,.2);
+  text-align:center;
+  font-family:'Fraunces',Georgia,serif;
+  font-size:16px;
+  color:var(--ink-soft);
+  letter-spacing:.02em;
+}
+
+@media (max-width:480px){
+  .wrap{padding:0 22px 90px}
+  .mast{padding:70px 0 54px}
+  .gestures li{grid-template-columns:68px 1fr; gap:14px}
+  .dates li{flex-direction:column; gap:2px}
+  .dates .d{min-width:0}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <div class="lamp">Kluay</div>
+    <p>A light with your name on it</p>
+  </header>
+
+  <div class="bar"></div>
+
+  <section>
+    <h2>Touching the brass bar</h2>
+    <p class="lede">Everything is done with the metal bar along the front. Rest a finger on it — no pressing needed.</p>
+    <ul class="gestures">
+      <li>
+        <span class="hold">Tap</span>
+        <span class="what">Change the light
+          <em>Three to choose from. If it's off, a tap wakes it.</em></span>
+      </li>
+      <li>
+        <span class="hold">Hold 1s</span>
+        <span class="what">Brighter or softer
+          <em>Two levels. The light pauses a moment so you can see the change.</em></span>
+      </li>
+      <li>
+        <span class="hold">Hold 3s</span>
+        <span class="what">Turn it off
+          <em>It fades out while your finger is still there.</em></span>
+      </li>
+      <li>
+        <span class="hold">Hold 10s</span>
+        <span class="what">Open Wi-Fi setup
+          <em>Only needed once. See below.</em></span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Days it knows</h2>
+    <p class="lede">On these dates the light becomes something else. It returns to normal the next day.</p>
+    <ul class="dates">
+      <li><span class="d">24 December</span><span class="n">The day we began</span></li>
+      <li><span class="d">6 November</span><span class="n">Your birthday</span></li>
+      <li><span class="d">3 March</span><span class="n">The day we met</span></li>
+      <li><span class="d">The 24th</span><span class="n">Every month</span></li>
+    </ul>
+    <div class="hush">
+      I'm not telling you what happens. <strong>You'll have to wait and see.</strong>
+      This is why it needs Wi-Fi — without it, the light can't know what day it is,
+      and those days will pass like any other.
+    </div>
+  </section>
+
+  <section>
+    <h2>Connecting to Wi-Fi</h2>
+    <p class="lede">Once. After this it reconnects on its own, every time you plug it in.</p>
+    <ol class="steps">
+      <li>Hold the brass bar for 10 seconds. The light fades out at 3 seconds — keep holding. At 10 it starts pulsing white.</li>
+      <li>Open Wi-Fi on your phone and join <code>KluayLight</code>. No password.</li>
+      <li>A setup page should open by itself. If it doesn't, go to <code>192.168.4.1</code> in your browser.
+        <small>Your phone will warn you there's no internet on this network. That's expected — stay connected.</small></li>
+      <li>Tap <strong>Configure WiFi</strong>, choose your home network, enter its password, save.</li>
+      <li>The white pulsing stops and the light comes back to normal. Done.
+        <small>Your router needs 2.4GHz. Most have it alongside 5GHz.</small></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>If it blinks white</h2>
+    <p class="lede">White is the only colour it uses to tell you something.</p>
+    <div class="signal">
+      <span class="blink fast"></span>
+      <span><strong>Three quick blinks</strong> when you plug it in, or when you wake it —
+      it can't reach your Wi-Fi. Everything still works; it just won't know the date.
+      Run the setup again.</span>
+    </div>
+    <div class="signal">
+      <span class="blink slow"></span>
+      <span><strong>Slow steady pulsing</strong> — setup is open and waiting for your phone.
+      Hold the bar 3 seconds to close it.</span>
+    </div>
+    <div class="signal">
+      <span class="blink"></span>
+      <span><strong>The white stops and the light comes back</strong> — connected.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>The paper</h2>
+    <p class="lede">Mino washi, made in Gifu — one of the places Japan has been making paper by hand for over a thousand years.</p>
+    <p class="body">
+      The fine threads you can see when it's lit are barley stalks, laid into the sheet while it was still wet.
+      No two pieces are the same. I chose this one out of everything the shop had.
+    </p>
+  </section>
+
+  <section>
+    <h2>Looking after it</h2>
+    <ul class="care">
+      <li>Keep it out of direct sun. The case and the letters soften in real heat.</li>
+      <li>The front is washi paper. Don't wipe it — dust the acrylic instead.</li>
+      <li>Leave it plugged in. It uses almost nothing, and turning it off with the bar is easier than the cable.</li>
+      <li>Any 5V USB charger works. A phone charger is fine.</li>
+    </ul>
+  </section>
+
+  <p class="close">Made for you, by hand.</p>
+
+</div>
+</body>
+</html>
