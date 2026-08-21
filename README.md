@@ -1,1 +1,1 @@
-# Kluay
+# Static page
